@@ -12,6 +12,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
 
+// アプリ全体にWebAPI規約を適用する
+[assembly:ApiConventionType(typeof(DefaultApiConventions))]
+
 namespace WebApiApp
 {
     public class Startup

@@ -8,6 +8,7 @@ namespace WebApiApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ApiConventionType(typeof(DefaultApiConventions))] // コントローラーにWebAPI規約を適用する
     public class ValuesController : ControllerBase
     {
         // GET api/values
@@ -25,7 +26,9 @@ namespace WebApiApp.Controllers
         }
 
         // POST api/values
+        // アクションメソッドにWebAPI規約を適用する
         [HttpPost]
+        [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Post))]
         public void Post([FromBody] string value)
         {
         }
